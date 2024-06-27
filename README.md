@@ -14,14 +14,14 @@ To help you navigate through the topics covered, we have provided an index below
    
     3.1. [Setting Up Docker](Docker/setting-up-docker.md)
 
-    3.2. [NVidia Docker Toolkit Installation Process](Docker/nvidia-docker-toolkit.md)
+    3.2. [NVIDIA Docker Toolkit Installation Process](Docker/nvidia-docker-toolkit.md)
 
     3.3. [DockerFile: Detials and Creation](Docker/dockerfile-details-and-creation.md)
 
-    3.4. [Pulling an Image](Docker/)
+    3.4. [Pulling an Image](Docker/pulling-image.md)
 
-    3.4. [Running a Container](Docker/running-a-container.md)
+    3.5. [Running a Container](Docker/running-a-container.md)
 
-    3.5. [Saving Docker Container changes in Image](Docker/saving-container-image.md)
+    3.6. [Saving Docker Container changes in Image](Docker/saving-container-image.md)
 
 4. [Kubernetes](Kubernetes)
