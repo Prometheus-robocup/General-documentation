@@ -9,7 +9,7 @@ To help you navigate through the topics covered, we have provided an index below
 # Index
 
 1. [Introduction](intro)
-2. [WSL Installation]()
+2. [WSL Installation](WSL/wsl-download.md)
 3. [Docker](Docker)
    
     3.1. [Setting Up Docker](Docker/setting-up-docker.md)
@@ -18,6 +18,10 @@ To help you navigate through the topics covered, we have provided an index below
 
     3.3. [DockerFile: Detials and Creation](Docker/dockerfile-details-and-creation.md)
 
-    3.4. [Saving Docker Container changes in Image](Docker/saving-container-image.md)
+    3.4. [Pulling an Image](Docker/)
+
+    3.4. [Running a Container](Docker/running-a-container.md)
+
+    3.5. [Saving Docker Container changes in Image](Docker/saving-container-image.md)
 
 4. [Kubernetes](Kubernetes)
