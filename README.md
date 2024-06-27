@@ -1,1 +1,23 @@
-# General-documentation
+# TEAM PROMETHEUS OFFICIAL DOCUMENTATION
+
+Welcome to the official documentation for Team Prometheus! This repository serves as a comprehensive guide for understanding the core concepts and methodologies employed by our team. Authored by [Arav Jain](https://github.com/AravJain007) and [Vatsal Jha](https://github.com/Vatsal-Jha256), this documentation is designed to provide insights into our journey and the techniques that have contributed to our success in the RoboCup Soccer Competition.
+
+We aim for continuous improvement and innovation. As we evolve, we hope this documentation will grow to reflect the advancements and milestones of Team Prometheus, aspiring to be one of the top contenders in RoboCup Soccer.
+
+To help you navigate through the topics covered, we have provided an index below. Use the `Ctrl + F` feature to quickly locate the information relevant to your queries. Please keep in mind that all these instructions are for Ubuntu 22.04.
+
+# Index
+
+1. [Introduction](intro)
+2. [WSL Installation]()
+3. [Docker](Docker)
+   
+    3.1. [Setting Up Docker](Docker/setting-up-docker.md)
+
+    3.2. [NVidia Docker Toolkit Installation Process](Docker/nvidia-docker-toolkit.md)
+
+    3.3. [DockerFile: Detials and Creation](Docker/dockerfile-details-and-creation.md)
+
+    3.4. [Saving Docker Container changes in Image](Docker/saving-container-image.md)
+
+4. [Kubernetes](Kubernetes)
