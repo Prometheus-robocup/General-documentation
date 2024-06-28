@@ -6,6 +6,8 @@ We aim for continuous improvement and innovation. As we evolve, we hope this doc
 
 To help you navigate through the topics covered, we have provided an index below. Use the `Ctrl + F` feature to quickly locate the information relevant to your queries. Please keep in mind that all these instructions are for Ubuntu 22.04.
 
+A few quick tips for Linux can be found [here](Linux/README.md).
+
 # Index
 
 1. [Introduction](intro)
@@ -25,6 +27,8 @@ To help you navigate through the topics covered, we have provided an index below
     3.6. [Saving Docker Container changes in Image](Docker/saving-container-image.md)
 
 4. [Kubernetes](Kubernetes)
+
+    4.1. [Installation]()
 
 5. [Linux Terminal Commands](Linux)
 
