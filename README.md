@@ -25,3 +25,7 @@ To help you navigate through the topics covered, we have provided an index below
     3.6. [Saving Docker Container changes in Image](Docker/saving-container-image.md)
 
 4. [Kubernetes](Kubernetes)
+
+5. [Linux Terminal Commands](Linux)
+
+    5.1. [File Transfer](Linux/file-transfer.md)
