@@ -36,4 +36,4 @@ A few quick tips for Linux can be found [here](Linux/README.md).
 
 6. [RoboViz/ rcssserver3d](Roboviz-rcssserver3d)
 
-    6.1. [Installation](Linux/file-transfer.md)
+    6.1. [Installation](Roboviz-rcssserver3d/install.md)
