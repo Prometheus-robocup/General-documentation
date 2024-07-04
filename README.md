@@ -34,6 +34,8 @@ A few quick tips for Linux can be found [here](Linux/README.md).
 
     5.1. [File Transfer](Linux/file-transfer.md)
 
+    5.2. [Screen command](Linux/screen.md)
+
 6. [RoboViz/ rcssserver3d](Roboviz-rcssserver3d)
 
     6.1. [Installation](Roboviz-rcssserver3d/install.md)
