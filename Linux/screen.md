@@ -1,149 +1,94 @@
-# Linux Screen Command Documentation
+# To connect to a remote server and launch multiple tasks
+To achieve what you're aiming for—running multiple commands in parallel on a remote machine and being able to disconnect from your laptop while these commands continue running—you can use the `screen` command effectively. Here's a step-by-step guide on how to do this:
 
-## Table of Contents
+### Steps to Run Commands in Parallel Using `screen`:
 
-- [Linux Screen Command Documentation](#linux-screen-command-documentation)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Basic Usage](#basic-usage)
-    - [Launch a New Screen Session](#launch-a-new-screen-session)
-    - [Detach From a Screen Session](#detach-from-a-screen-session)
-    - [List All Active Screen Sessions](#list-all-active-screen-sessions)
-    - [Reattach to a Detached Screen Session](#reattach-to-a-detached-screen-session)
-  - [Window Management](#window-management)
-    - [Create a New Terminal Window](#create-a-new-terminal-window)
-    - [Switch Between Windows](#switch-between-windows)
-    - [View and Select From a List of All Active Windows](#view-and-select-from-a-list-of-all-active-windows)
-    - [Rename a Window](#rename-a-window)
-  - [Advanced Features](#advanced-features)
-    - [Send Commands to a Detached Session](#send-commands-to-a-detached-session)
-  - [Important Notes](#important-notes)
+1. **SSH into the Remote Machine:**
+   First, you need to connect to the remote machine using SSH.
+   ```bash
+   ssh username@remote_machine_ip
+   ```
 
-## Introduction
+2. **Start a `screen` Session:**
+   Once logged in, start a new `screen` session.
+   ```bash
+   screen -S session_name
+   ```
+   Replace `session_name` with a meaningful name for your session. This helps you identify the session later.
 
-`screen` command in Linux provides the ability to launch and use multiple shell sessions from a single ssh session. When a process is started with ‘screen’, the process can be detached from session & then can reattach the session at a later time. When the session is detached, the process that was originally started from the screen is still running and managed by the screen itself. The process can then re-attach the session at a later time, and the terminals are still there, the way it was left. It's particularly useful for remote system administration, running long processes, and multitasking in the terminal.
+3. **Run Commands in New `screen` Windows:**
+   - To open a new window within `screen`, press `Ctrl` + `a`, release them, and then press `c`.
+   - In the new window, you can run your first command.
+   - Repeat the `Ctrl` + `a`, `c` sequence to create additional windows and run the other commands. You can have up to four commands running in separate windows.
 
-## Basic Usage
+4. **Navigating Between Windows in `screen`:**
+   - To switch between `screen` windows, use `Ctrl` + `a`, followed by `n` for the next window or `p` for the previous window.
 
-### Launch a New Screen Session
+5. **Detach from the `screen` Session:**
+   - You can detach from the `screen` session without stopping the running commands by pressing `Ctrl` + `a`, then `d`. This will take you back to the shell, but the commands continue to run in the background within the `screen` session.
 
-To start a new screen session:
+6. **Log Out from SSH:**
+   - You can now safely log out of the SSH session without interrupting your commands.
+   ```bash
+   exit
+   ```
 
-```
-screen
-```
+7. **Reattach to the `screen` Session Later:**
+   - When you log back into the remote machine and want to reattach to your `screen` session, use:
+     ```bash
+     screen -r session_name
+     ```
+   - If you forget the session name, you can list all available `screen` sessions with:
+     ```bash
+     screen -ls
+     ```
+   - Then reattach using the session ID provided.
 
-To start a session with a custom name:
+### Example Workflow:
 
-```
-screen -S session_name
-```
+1. SSH into your remote machine:
+   ```bash
+   ssh user@remote_machine
+   ```
 
-Example:
-```
-screen -S session1
-```
+2. Start a `screen` session named `parallel_tasks`:
+   ```bash
+   screen -S parallel_tasks
+   ```
 
-### Detach From a Screen Session
+3. Open the first window and run your command:
+   ```bash
+   ./command1.sh
+   ```
 
-To detach from a screen session and return to the original terminal:
+4. Create a new window and run the next command:
+   ```bash
+   Ctrl + a, c
+   ./command2.sh
+   ```
 
-```
-Ctrl-a + d
-```
+5. Repeat for the remaining commands:
+   ```bash
+   Ctrl + a, c
+   ./command3.sh
+   Ctrl + a, c
+   ./command4.sh
+   ```
 
-The detached session keeps its processes running in the background.
+6. Detach from the `screen` session:
+   ```bash
+   Ctrl + a, d
+   ```
 
-### List All Active Screen Sessions
+7. Log out from SSH:
+   ```bash
+   exit
+   ```
 
-To list all active sessions:
+8. To reconnect later:
+   ```bash
+   ssh user@remote_machine
+   screen -r parallel_tasks
+   ```
 
-```
-screen -ls
-```
-
-This command shows all running Screen sessions, their detachment statuses, names, and process IDs.
-
-### Reattach to a Detached Screen Session
-
-To reattach to a running Screen session:
-
-```
-screen -r ID-name
-```
-
-Replace `ID-name` with the actual Screen session ID or name.
-
-Examples:
-```
-screen -r 1268
-screen -r session1
-```
-
-## Window Management
-
-### Create a New Terminal Window
-
-To create a new window within a screen session:
-
-```
-Ctrl-a + c
-```
-
-### Switch Between Windows
-
-Use these shortcuts to switch between windows:
-
-- `Ctrl-a + n`: Cycle to the next window
-- `Ctrl-a + p`: Move to the previous window
-- `Ctrl-a + [0-9]`: Switch to a specific window by number (0-9)
-- `Ctrl-a + Ctrl-a`: Toggle between the current and previous windows
-
-### View and Select From a List of All Active Windows
-
-To see a list of all windows in the current session:
-
-```
-Ctrl-a + "
-```
-
-Use arrow keys to navigate and Enter to select.
-
-To switch to a window by name:
-
-```
-Ctrl-a + '
-```
-
-Then enter the window name.
-
-### Rename a Window
-
-To rename a window:
-
-1. Navigate to the desired window
-2. Press `Ctrl-a + :` to enter command mode
-3. Type: `title "New Window Name"`
-
-## Advanced Features
-
-### Send Commands to a Detached Session
-
-To run a command in a detached session without reattaching:
-
-```
-screen -S session-name-or-id -X -p 0 command
-```
-
-Replace `0` with the window number if needed.
-
-Example:
-```
-screen -S hostinger -X -p 0 echo "Test message"
-```
-
-## Important Notes
-
-- To use Screen shortcuts, release `Ctrl + a` before pressing the next key.
-- Commands are case-sensitive.
-- To quit Screen, use the `exit` command in the last remaining window.
+This setup allows your commands to run independently in separate `screen` windows, and they will continue to execute even after you disconnect from the SSH session.
