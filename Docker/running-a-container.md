@@ -1,19 +1,5 @@
 # How to run a Docker Container from a Docker Image
 
-### Quick Command
-
-```
-sudo docker --ipc=host --net=host -it -v /foler/to/mount/on_local_device:/folder/on/image --gpus all --name name-of-container name-of-image
-```
----
-
-### Detailed Version
-
-Visit this [website](https://docs.docker.com/engine/reference/run/)
-
----
-### What each of these things mean
-
 Let's break down this Docker command and explain what each part does:
 
 ```
@@ -41,6 +27,7 @@ sudo docker --ipc=host --net=host -it -v /folder/to/mount/on_local_device:/folde
 In summary, this command runs a Docker container with the following configurations:
 
 - Shares the IPC namespace with the host system
+- Shares the port configurate with the host system
 - Allocates a pseudo-TTY for interactive use
 - Mounts a directory from the host system into the container
 - Enables access to all available GPUs on the host system
@@ -48,3 +35,8 @@ In summary, this command runs a Docker container with the following configuratio
 - Runs the specified Docker image
 
 These options can be useful for a variety of use cases, such as running applications that require shared memory or GPU acceleration, or for sharing data between the host system and the container.
+
+
+### Detailed Version
+
+Visit this [website](https://docs.docker.com/engine/reference/run/)
