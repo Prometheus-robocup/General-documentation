@@ -17,7 +17,7 @@ Visit this [website](https://docs.docker.com/engine/reference/run/)
 Let's break down this Docker command and explain what each part does:
 
 ```
-sudo docker --ipc=host -it -v /folder/to/mount/on_local_device:/folder/on/image --gpus all --name name-of-container name-of-image
+sudo docker --ipc=host --net=host -it -v /folder/to/mount/on_local_device:/folder/on/image --gpus all --name name-of-container name-of-image
 ```
 
 1. `sudo`: This runs the Docker command with superuser (root) privileges. This may be necessary depending on your system configuration.
